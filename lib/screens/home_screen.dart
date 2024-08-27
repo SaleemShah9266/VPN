@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:vpn/appPreferences/preferences.dart';
 import 'package:vpn/main.dart';
+import 'package:vpn/widgets/custom_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -79,6 +80,71 @@ class HomeScreen extends StatelessWidget {
       ),
 
       bottomNavigationBar: locationSelectionBottomNavigation(context),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+
+          /// 2 rounded widgets
+          /// location + ping
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CustomWidget(titleText: "Location",
+              subTitleTexts: "FREE",
+              roundWidgetWithIcon: CircleAvatar(
+                radius: 32,
+                backgroundColor: Colors.redAccent,
+                child: Icon(Icons.flag_circle,
+                  size: 30,
+                  color: Colors.white70,),
+              ),
+            ),
+
+            CustomWidget(titleText: "60 ms",
+              subTitleTexts: "PING",
+              roundWidgetWithIcon: CircleAvatar(
+                radius: 32,
+                backgroundColor: Colors.orangeAccent,
+                child: Icon(Icons.graphic_eq,
+                  size: 30,
+                  color: Colors.white70,),
+              ),
+            ),
+          ],
+        ),
+
+
+          /// 2 rounded widgets
+          /// download + ping
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CustomWidget(titleText: "0 kbps",
+                subTitleTexts: "DOWNLOADS",
+                roundWidgetWithIcon: CircleAvatar(
+                  radius: 32,
+                  backgroundColor: Colors.greenAccent,
+                  child: Icon(Icons.arrow_circle_down,
+                    size: 30,
+                    color: Colors.white70,),
+                ),
+              ),
+
+              CustomWidget(titleText: "0 kbps",
+                subTitleTexts: "UPLOAD",
+                roundWidgetWithIcon: CircleAvatar(
+                  radius: 32,
+                  backgroundColor: Colors.purpleAccent,
+                  child: Icon(Icons.arrow_circle_up,
+                    size: 30,
+                    color: Colors.white70,),
+                ),
+              ),
+            ],
+          ),
+
+        ],
+      ),
     );
   }
 }
